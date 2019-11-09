@@ -1,2 +1,1 @@
-'user strict'
- 
+'use strict'

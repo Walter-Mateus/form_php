@@ -1,16 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/public/style.css">
-    <script defer src="main.js"></script>
-    <title>Document</title>
-</head>
-
-<body>
-    <main>
+ 
+       
         <form class="auth" action="">
             <fieldset>
                 <legend>Авторизация</legend>
@@ -34,11 +23,8 @@
                 </label>
 
                 <div class="auth__row">
-                    <button class="auth__btn">Login</button>
+                    <button type="button" id="sendbtn" class="auth__btn">Login</button>
                 </div>
             </fieldset>
         </form>
-    </main>
-</body>
-
-</html>
+<script defer src="public/login.js"></script>

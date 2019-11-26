@@ -55,15 +55,17 @@ formManager.valid = function  () {
 
 formManager.send = function () {
 
+        console.log(this)
+
         if (this.valid()===false) return null;
 
         var data = {
                 name: this.name.value,
                 email: this.email.value,
+                phone: this.phone.value,
                 password: this.password.value,
                 subscribe: this.subscribe.checked,
         }
-       
        
         fetch('/login', {
                 method: 'POST',

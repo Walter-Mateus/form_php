@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 function getUsers() {
     $DB = mysqli_connect("127.0.0.1", "root", "root", "website");
@@ -7,7 +7,7 @@ function getUsers() {
         die("Ошибка: Невозможно установить соединение");
     }
 
-    $dataUsers = $DB->query('SELECT username, age, email from users');
+    $dataUsers = $DB->query('SELECT id, username, phone, email from users');
 
 
     $users = $dataUsers->fetch_all(MYSQLI_ASSOC);
@@ -27,8 +27,8 @@ function addUser($data) {
         die("Ошибка: Невозможно установить соединение");
     }
     
-    $sql = "INSERT INTO users (username, email, `password`, phone, age)"; 
-    $sql .= "VALUES('{$data['username']}', '{$data['email']}', '{$data['password']}', '{$data['phone']}', '{$data['age']}')";
+    $sql = "INSERT INTO users (username, email, password, phone, age)"; 
+    $sql .= "VALUES('{$data['name']}', '{$data['email']}', '{$data['password']}', '{$data['phone']}', '{$data['age']}')";
 
     $resultQuery = $DB->query($sql);
 
@@ -46,5 +46,3 @@ function addUser($data) {
 //];
 
 //addUser($user);
-
-    

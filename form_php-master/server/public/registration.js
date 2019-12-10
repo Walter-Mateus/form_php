@@ -1,4 +1,4 @@
- 'use strict'
+ 'use strict';
 
 var formManager = {
     name: document.querySelector('#username'),
@@ -10,7 +10,7 @@ var formManager = {
     password: document.querySelector('#userpass'),
     passwordError: document.querySelector('#userpass + .auth__error'),
     subscribe: document.querySelector('#usersubscribe'),
-    sendBtn: document.querySelector('#sendbtn'),    
+    sendBtn: document.querySelector('#sendbtn')
 };
 
 formManager.valid = function () {
@@ -45,21 +45,24 @@ formManager.valid = function () {
 
 formManager.send = function () {
 
-    console.log(this)
-
-    if (this.valid() === false) return null;
+    if (this.valid() === false)
+        return null;
 
     var data = {
         name: this.name.value,
         email: this.email.value,
         phone: this.phone.value,
         password: this.password.value,
-        subscribe: this.subscribe.checked,
+        subscribe: this.subscribe.checked
     };
 
-    fetch('/login', {
+    fetch('/registration', {
         method: 'POST',
         body: JSON.stringify(data)
+    }).then(function (response) {
+        return response.json();
+    }).then(function (data) {
+        alert(data.message);
     });
 };
 
@@ -75,7 +78,7 @@ formManager.setClearHandler = function () {
     });
 };
 
-formManager.init = function() {
+formManager.init = function () {
     this.sendBtn.onclick = this.send.bind(this);
     this.setClearHandler();
 };
